@@ -70,15 +70,24 @@ var _ = self.Highlight = {
 			'tag': {
 				'pattern': /(&lt;|<)\/?[\w\W]+?(>|&gt;)/gi,
 				'inside': {
+					'src-value': {
+						'pattern': /[src]+=(('|").*?(\2)|[^\s>]+(?=>|&|\s))/gi,
+						'inside': {
+							'attr-name': /^[\w-]+(?==)/gi,
+							'punctuation': /=/g,
+							'url': /.*/g,
+						}
+					},
 					'attr-value': {
 						'pattern': /[\w-]+=(('|").*?(\2)|[^\s>]+(?=>|&|\s))/gi,
 						'inside': {
 							'attr-name': /^[\w-]+(?==)/gi,
-							'punctuation': /=/g
+							'punctuation': /=/g,
 						}
 					},
 					'attr-name': /\s[\w-]+(?=\s)/gi,
-					'punctuation': /&lt;\/?|&gt;/g
+					'punctuation': /&lt;\/?|&gt;/g,
+
 				}
 			},
 			'entity': /&amp;#?[\da-z]{1,8};/gi
