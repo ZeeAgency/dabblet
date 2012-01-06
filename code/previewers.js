@@ -269,3 +269,28 @@ new Previewer('entity', function(code) {
 	
 	return this.textContent.length === 1;
 });
+
+new Previewer('attr-value', function(code) {
+	
+	if(code.substr(0, 3) !== 'src') {
+		return false;
+	}
+	
+	var href = code.replace(/(src[\ ]*=[\ ]*)|[\"|\']/gi, ''),
+		img = $('img',this),
+		that = this;
+	
+	img.src = href;
+	
+	img.onload = function() {
+		this.className = '';
+		that.style.marginLeft = '-' + this.offsetWidth/2 + 'px';
+	};
+	
+	img.onerror = function() {
+		this.onload();
+		this.className = 'error';
+	};
+	
+	return true;
+});

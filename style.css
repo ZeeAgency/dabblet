@@ -883,19 +883,30 @@ body.tabediting header {
 			marker: url(#marker);
 		}
 		
-#url {
+#url,
+#attr-value {
 	padding: 5px;
 }
 
-	#url > img {
+	#url > img,
+	#attr-value > img {
 		max-width: 200px;
 		max-height: 200px;
 	}
+	#attr-value > img {
+		min-width: 60px;
+		min-height: 60px;
+		/* Could be icon for small icons */
+		image-rendering: -moz-crisp-edges;
+	}
 	
-	#url > img.error {
+	#url > img.error,
+	#attr-value > img.error {
 		width: 50px;
 		height: 50px;
 	}
+
+
 	
 #entity {
 	min-width: 1.6em;
