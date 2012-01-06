@@ -82,12 +82,11 @@ var _ = self.Highlight = {
 						'pattern': /[\w-]+=(('|").*?(\2)|[^\s>]+(?=>|&|\s))/gi,
 						'inside': {
 							'attr-name': /^[\w-]+(?==)/gi,
-							'punctuation': /=/g,
+							'punctuation': /=/g
 						}
 					},
 					'attr-name': /\s[\w-]+(?=\s)/gi,
-					'punctuation': /&lt;\/?|&gt;/g,
-
+					'punctuation': /&lt;\/?|&gt;/g
 				}
 			},
 			'entity': /&amp;#?[\da-z]{1,8};/gi
